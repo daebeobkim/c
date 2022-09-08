@@ -1,0 +1,25 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdlib.h>
+
+int main(void)
+{
+	int z;
+	int sum = 0;
+	for (;;)
+	{
+		int x = rand() % 100;
+		int y = rand() % 100;
+		printf("%d + %d= ",x,y);
+		scanf("%d", &z);
+		sum = x + y;
+		if (sum != z)
+			printf("틀렸습니다\n");
+		else if (sum = z) {
+			printf("맞았습니다\n");
+			break;
+		}
+
+	}
+	return 0;
+}
