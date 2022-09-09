@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+int main(void)
+{
+	char x,y;
+
+	printf("이름이 어떻게 되시나요?\n");
+	scanf(" %c",&x);
+
+	printf("어디 사시나요?\n");
+	scanf(" %c",&y);
+	printf("안녕하세요, %c 에 사는 %c 씨", y, x);
+	return 0;
+}
