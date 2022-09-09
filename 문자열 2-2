@@ -4,13 +4,13 @@
 
 int main(void)
 {
-	char x,y;
+	char x[10]; 
+	char y[10];
 
 	printf("이름이 어떻게 되시나요?\n");
-	scanf(" %c",&x);
-
+	scanf("%s", x);
 	printf("어디 사시나요?\n");
-	scanf(" %c",&y);
-	printf("안녕하세요, %c 에 사는 %c 씨", y, x);
+	scanf("%s", y);
+	printf("안녕하세요, %s에 사는 %s씨",y,x);
 	return 0;
 }
