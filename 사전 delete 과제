@@ -3,43 +3,53 @@
 #include <string.h>
 #define SIZE 10
 
-int main()
+int main(void)
 {
 	char temp[20];
-	char dic[20][2][30];
 	int k = 0;
 	int x = 5;
-	char sub[4][20] = { "list", "add","delete", "quit"};
+	char sub[5][30] = { "search", "list", "add","delete", "quit" };
 	char put[30];
+	char put1[30];
 	int index = 0;
 	int count = 0;
 	int i = 0;
 	char english[SIZE][20];
-	char size[30];
+
 	char korean[SIZE][20];
 	char korean1[30];
-	char del[] = {NULL};
+	char del[] = { NULL };
 	char del_kor[30];
 	char del_eng[30];
-	int ret = 10;
-	int del_count1;
-	int del_count2;
+
+
 	while (1)
 	{
 		int j = 0;
 		for (;;) {
 			printf("\n======================================================================\n");
-			printf("사용하실 명령어를 선택해 주십시오. (저장된 모든 조합 출력 : list,  조합 추가 : add, 조합 삭제 : delete 프로그렘 종료 : quit)\n");
+			printf("사용하실 명령어를 선택해 주십시오. (영어단어 입력시 한글 출력 : search, 저장된 모든 조합 출력 : list,  조합 추가 : add, 조합 삭제 : delete 프로그렘 종료 : quit)\n");
 			printf("======================================================================\n");
 			scanf("%s", put);
 			if (strcmp(sub[0], put) == 0)
+			{
+				printf("영어단어를 입력하시오: ");
+				scanf("%s", put1);
+				for (i = 0; i < SIZE; i++) {
+					if (strcmp(english[i], put1) == 0) {
+						printf("한글단어 출력 : %s", korean[i]);
+						break;
+					}
+				}
+			}
+			if (strcmp(sub[1], put) == 0)
 			{
 				for (i = 0; i < count; ++i)
 				{
 					printf("한글 단어:%s      /    영어 단어   %s\n", korean[i], english[i]);
 				}
 			}
-			if (strcmp(sub[1], put) == 0)
+			if (strcmp(sub[2], put) == 0)
 			{
 				printf("영어 단어 입력 : ");
 				for (i = 0; i < SIZE; i++)
@@ -62,7 +72,7 @@ int main()
 				count++;
 				x++;
 			}
-			if (strcmp(sub[2], put) == 0)
+			if (strcmp(sub[3], put) == 0)
 			{
 				printf("삭제하실 한글 단어의 뜻을 입력해 주세요 : ");
 				scanf("%s", del_kor);
@@ -72,7 +82,7 @@ int main()
 						for (i; i < count - 1; i++) {
 							strcpy(temp, korean[i]);
 							strcpy(korean[i], korean[i + 1]);
-							strcpy(korean[i+1], temp);
+							strcpy(korean[i + 1], temp);
 						}
 						strcpy(korean[count - 1], del);
 					}
@@ -84,23 +94,20 @@ int main()
 							for (i; i < count - 1; i++) {
 								strcpy(temp, english[i]);
 								strcpy(english[i], english[i + 1]);
-								strcpy(english[i+1], temp);
+								strcpy(english[i + 1], temp);
 							}
 							strcpy(english[count - 1], del);
 						}
 					}
-					
 				}
 				count--;
 			}
-			if (strcmp(sub[3], put) == 0)
+			if (strcmp(sub[4], put) == 0)
 			{
 				printf("종료를 선택하셨습니다\n");
 				break;
 			}
-
 		}
 		break;
 	}
-
 }
