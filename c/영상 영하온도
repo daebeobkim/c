@@ -1,0 +1,14 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+int main(void)
+{
+	int a, b, c, d;
+	printf("온도를 입력하시오:");
+	scanf("%d", &a);
+	if (a < 0)
+		printf("현재 온도는 %d입니다", a);
+	else
+		printf("현재 온도는 영상입니다");
+	return 0;
+}

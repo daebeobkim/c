@@ -1,0 +1,17 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+#define ROWS 3
+#define COLS 3
+
+int main(void)
+{
+	int i, k;
+	int A[ROWS][COLS] = { {1,0,0},{0,1,0},{0,0,1} };
+	int B[ROWS][COLS] = { {1,0,0},{0,1,0},{0,0,1} };
+	for (k = 0; k < ROWS; k++) {
+		for (i = 0; i < ROWS; i++)
+			printf("%d ", A[k][i]);
+		printf("\n");
+	}
+	return 0;
+}

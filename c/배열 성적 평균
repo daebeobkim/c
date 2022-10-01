@@ -1,0 +1,18 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+int main(void)
+{
+	int i, sum = 0;
+	int avg = 0;
+	int scores[5];
+	printf("학생들의 성적을 입력하시오:");
+	for (i = 0; i < 5; i++) {
+		scanf("%d",&scores[i]);
+		sum += scores[i];
+	}
+	avg = sum / i;
+	printf("성적 평균:%d",avg);
+
+		
+	return 0;
+}

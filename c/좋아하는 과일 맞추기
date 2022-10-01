@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+int main(void)
+{
+	char x[10];
+	char y[10] = "바나나";
+	for (;;)
+	{
+		printf("내가 제일 좋아하는 과일은 무엇일까요?");
+		scanf("%s", x);
+		if (strcmp(x,"바나나")==0) {
+			printf("\n맞았습니다!");
+			break;
+		}
+	}
+	return 0;
+}

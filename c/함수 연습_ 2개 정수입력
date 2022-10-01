@@ -1,0 +1,19 @@
+#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+int get_integer()
+{
+	int a, b;
+	int value;
+	printf("정수를 입력하시오:");
+	scanf("%d", &a);
+	scanf("%d", &b);
+	value = a + b;
+	printf("두 수의 합은 %d", value);
+	return value;
+}
+int main(void)
+{
+	get_integer();
+	return 0;
+}
