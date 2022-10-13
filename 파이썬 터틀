@@ -1,0 +1,33 @@
+import turtle
+import random
+
+def screenLeftClick(x,y):
+    global r,g,b
+    turtle.pencolor((r,g,b))
+    turtle.pendown()
+    turtle.goto(x,y)
+
+def screenRightClick(x,y):
+    turtle.pendown()
+    turtle.goto(x,y)
+
+def screenmidClick(x,y):
+    global r,g,b
+    tsize = random.randrange(1,10)
+    turtle.shapesize(tSize)
+    r = random.random()
+    g = random.random()
+    b = random.random()
+
+Psize = 10
+r,g,b = 0.0, 0.0 , 0.0
+turtle.title('거북이로 그림 그리기')
+turtle.shape('turtle')
+turtle.pensize(Psize)
+
+turtle.onscreenclick(screenLeftClick,1)
+turtle.onscreenclick(screenmidClick,2)
+turtle.onscreenclick(screenRightClick,3)
+
+
+turtle.done()
