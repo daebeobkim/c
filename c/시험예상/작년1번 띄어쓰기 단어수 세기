@@ -1,0 +1,22 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include<stdio.h>
+#include<string.h>
+
+
+int	main() {
+	int i, j, len;
+	int cnt_w = 0;
+	char line[100];
+	gets_s(line,sizeof(line));
+	printf("%s", line);
+	len = strlen(line);
+	for (i = 0; i < len; i++) {
+		if (line[i] == ' '){
+			cnt_w++;
+		}
+	}
+	printf("단어수%d 글자수%d", cnt_w + 1, len- cnt_w);
+
+	return 0;
+}
