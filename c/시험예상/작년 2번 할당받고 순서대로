@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<stdlib.h>
+int main() {
+	int cnt;
+	int i;
+	int* num;
+	int k;
+	int count=0;
+	int tmp;
+	scanf("%d", &cnt);
+	num = (int*)malloc(cnt * sizeof(int));
+	if (num == NULL) {
+		printf("메모리 할당 오류\n");
+		exit(1);
+	}
+
+	for (i = 0; i < cnt; i++) {
+		scanf("%d", &num[i]);
+		count++;
+	}
+	for (k = 0; k < count; k++) {
+		for (i = 0; i < count - 1; i++) {
+			if (num[i] > num[i + 1]) {
+				int tmp = num[i];
+				num[i] = num[i + 1];
+				num[i + 1] = tmp;
+			}
+		}
+	}
+	for (i = 0; i < cnt; i++) {
+		printf("%d ", num[i]);
+	}
+	free(num);
+	return 0;
+}
