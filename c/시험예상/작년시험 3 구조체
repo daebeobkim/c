@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+
+struct s { // 219125112 김대법
+	char name[10];
+	int old;
+};
+
+int main(void) {
+	int n = 0;
+	int i;
+	int k;
+	int avg = 0;
+	int avg1 = 0;
+	int count=0;
+	struct s tmp;
+	printf("구조체의 개수를 입력하시오\n");
+	scanf("%d", &n);
+
+	struct s* p;
+	p = (struct s*)malloc(2 * sizeof(struct s));
+
+	for (i = 0; i < n; i++) {
+		scanf("%s %d", p[i].name, &p[i].old);
+		count++;
+		avg += p[i].old;
+	}
+	for (k = 0; k < count; k++) {
+		for (i = 0; i < count - 1; i++) {
+			if (p[i].old > p[i + 1].old) {
+				tmp = p[i];
+				p[i] = p[i + 1];
+				p[i + 1] = tmp;
+			}
+		}
+	}
+	printf("%s %d", p[i].name, avg / n);
+	return 0;
+}
