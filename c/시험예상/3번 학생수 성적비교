@@ -1,49 +1,55 @@
+#include <stdio.h>
+#include <string.h>
 #define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include<stdlib.h>
-int main() {
-	struct str {
-		char name[20];
-		int k_grade;
-		int e_grade;
-	};
-	int i, n;
-	int emax, kmax, en, kr;
-	printf("학생수를 입력하시오");
-	scanf("%d", &n);
+struct stu {
+	char name[20];
+	int kor;
+	int eng;
+};
+int main(void) {
+	int x, y, z;
+	int i;
+	struct stu* c;
+	struct stu tmp;
+	int kor1;
+	int eng1;
+	int kmax=0;
+	int emax=0;
 
-	struct str* k;
-	k = (struct str*)malloc(n * sizeof(struct str));
-	if (k == NULL) {
+	printf("수를 입력하시오");
+	scanf("%d", &x);
+	c = (struct stu*)malloc(x * sizeof(struct stu));
+	if (c == NULL) {
 		printf("메모리 할당 오류\n");
 		exit(1);
 	}
-	for (i = 0; i < n; i++) {
-		printf("학생이름  국어성적  영어성적");
-		scanf("%s %d %d", k[i].name, &k[i].k_grade, &k[i].e_grade);
+	for (i = 0; i < x; i++) {
+		scanf("%s %d %d", c[i].name, &c[i].kor, &c[i].eng);
 	}
-	kr = k[0].k_grade;
-	en = k[0].e_grade;
+	kor1 = c[0].kor;
+	eng1 = c[0].eng;
 
-	for (i = 0; i < n - 1; i++) {
-		if (kr < k[i + 1].k_grade) {
-			kr = k[i + 1].k_grade;
-			kmax = i + 1;
+	for (i = 0; i < x; i++) {
+		if (c[i].kor>c[i+1].kor){
+			tmp = c[i];
+			c[i] = c[i + 1];
+			c[i + 1] = tmp;
 		}
-		else {
-			kmax = i;
-		}
-		if (en < k[i + 1].e_grade) {
-			en = k[i + 1].e_grade;
-			emax = i + 1;
-		}
-		else {
-			emax = i;
-		}
+
 	}
 	printf("국어 최고점수학생\n");
-	printf("%s %d \n", k[kmax].name, k[kmax].k_grade);
+	printf("%s %d \n", c[x-1].name, c[x-1].kor);
+
+	for (i = 0; i < x; i++) {
+		if (c[i].eng > c[i + 1].eng) {
+			tmp = c[i];
+			c[i] = c[i + 1];
+			c[i + 1] = tmp;
+		}
+	}
+
 	printf("영어 최고점수학생\n");
-	printf("%s %d \n", k[emax].name, k[emax].e_grade);
+	printf("%s %d \n", c[x-1].name, c[x-1].eng);
 	return 0;
+
 }
