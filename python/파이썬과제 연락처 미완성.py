@@ -6,6 +6,7 @@ count=0
 while True:
     per = input('메뉴를 입력하시오')
     if per == 'quit':
+        
             break
     while True:
         if per == 'add':
