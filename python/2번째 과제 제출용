@@ -5,6 +5,7 @@ while True:
     if per == 'quit':
             break
     while True:
+    
         
         if per == 'add':
             count += 1
