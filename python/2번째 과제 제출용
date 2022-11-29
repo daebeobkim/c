@@ -1,5 +1,5 @@
 a = []
-count=0
+count=0 #219125512 김대법
 while True:
     per = input('메뉴를 입력하시오')
     if per == 'quit':
