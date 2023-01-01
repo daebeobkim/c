@@ -6,6 +6,7 @@
 
 int main(void)
 
+
 {
 	int i, k;
 	int A[ROWS][COLS] = { {1,0,0},{0,1,0},{0,0,1} };
